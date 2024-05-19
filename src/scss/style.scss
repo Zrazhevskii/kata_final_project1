@@ -1,0 +1,150 @@
+@import '../blocks/header/header.scss';
+// @import '../img/burger.png';
+
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes-Regular.eot');
+  src: local('TT Lakes Regular'), local('TTLakes-Regular'),
+    url('../fonts/TTLakes-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/TTLakes-Regular.woff') format('woff'),
+    url('../fonts/TTLakes-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes-Medium.eot');
+  src: local('TT Lakes Medium'), local('TTLakes-Medium'),
+    url('../fonts/TTLakes-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/TTLakes-Medium.woff') format('woff'),
+    url('../fonts/TTLakes-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes-Bold.eot');
+  src: local('TT Lakes Bold'), local('TTLakes-Bold'),
+    url('../fonts/TTLakes-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/TTLakes-Bold.woff') format('woff'),
+    url('../fonts/TTLakes-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+$font: 'TT Lakes', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+  letter-spacing: 0.2px;
+  background-color: brown;
+}
+
+.burger {
+  background-image: url('../../src/img/burger.png');
+  background-repeat: no-repeat;
+}
+
+
+// $font: 'TT Lakes', sans-serif;
+// $light_grey: #f8f8f8;
+// $light_green: #41f6d7;
+// $duty_wight: #fff;
+// $light_wight: #eaeaea;
+
+// .header {
+//   display: flex;
+//   flex-direction: column;
+
+//   .header__nav {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     min-height: 88px;
+//     background-color: $duty_wight;
+//     ;
+//     padding-left: 16px;
+
+//     .header__conteiner {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-around;
+//       align-items: center;
+//       width: 50%;
+
+//       .header__img {
+//         width: 40px;
+//         height: 40px;
+//       }
+
+//       .burger {
+//         background: url('../blocks/header/header__nav/header__conteiner/img/burger.png') no-repeat;
+//       }
+
+//       .repair {
+//         background: url('../blocks/header/header__nav/header__conteiner/img/repair.png') no-repeat;
+//       }
+
+//       .checkstatus {
+//         background: url('../blocks/header/header__nav/header__conteiner/img/checkstatus.png');
+//       }
+
+//       .logo {
+//         width: 96px;
+//         height: 52px;
+//       }
+
+//       .box-two::before {
+//         content: '';
+//         display: block;
+//         width: 2px;
+//         height: 32px;
+//         background-color: $light_wight;
+//         margin-top: 4px;
+//       }
+
+//       .header__conteiner-button,
+//       .header--hidden,
+//       .main__servises-items::-webkit-scrollbar,
+//       .main__content-more-text,
+//       .main__content-text--hidden {
+//         display: none;
+//       }
+//     }
+
+//     .header__conteiner-title {
+//       box-sizing: content-box;
+//       height: 40px;
+//       background-color: $light_grey;
+//       padding-top: 24px;
+//       padding-bottom: 24px;
+//       padding-left: 16px;
+
+//       .header__title {
+//         font-family: $font;
+//         font-weight: 700;
+//         font-size: 28px;
+//         letter-spacing: 0;
+//       }
+
+//       .header__title::before {
+//         content: '';
+//         display: block;
+//         position: absolute;
+//         left: -4px;
+//         width: 5px;
+//         height: 40px;
+//         border-right: 5px solid $light_green;
+//         border-radius: 15px;
+//       }
+//     }
+//   }
+// }

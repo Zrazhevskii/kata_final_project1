@@ -1,0 +1,52 @@
+$font: 'TT Lakes', sans-serif;
+$light_grey: #f8f8f8;
+$light_green: #41f6d7;
+$duty_wight: #fff;
+$light_wight: #eaeaea;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 768px;
+  margin: auto;
+
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 88px;
+    background-color: $duty_wight;
+    padding-left: 16px;
+    min-width: 320px;
+    max-width: 768px;
+  }
+
+  .header__conteiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+
+    .header__img {
+      width: 40px;
+      height: 40px;
+      // background-color: $light_green;
+    }
+
+    // .burger {
+    //   background-image: url('../../img/burger.png');
+    //   background-repeat: no-repeat;
+    // }
+
+    .logo {
+      width: 96px;
+      height: 52px;
+    }
+
+    // .repair {
+    //   background: url('../../../src/blocks/header/img/repair.png') no-repeat;
+    // }
+  }
+}

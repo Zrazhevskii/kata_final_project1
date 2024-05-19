@@ -5,7 +5,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   // Входной файл
-  entry: ['./src/js/index.js'],
+  entry: {
+    entry: path.join(__dirname, 'src', 'index.js')
+  },
 
   // Выходной файл
   output: {
@@ -33,12 +35,38 @@ module.exports = {
       // Компилируем SCSS в CSS
       {
         test: /\.scss$/,
+        // use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        // use: [
+        //   'style-loader',
+        //   MiniCssExtractPlugin.loader,
+        //   {
+        //     loader: 'css-loader',
+        //     options: { sourceMap: true }
+        //   },
+        //   {
+        //     loader: 'postcss-loader',
+        //     options: {
+        //       postcssOptions: {
+        //         plugins: [['postcss-preset-env']]
+        //       }
+        //     }
+        //   },
+        //   {
+        //     loader: 'sass-loader',
+        //     options: { sourceMap: true }
+        //   }
+        // ]
         use: [
-          MiniCssExtractPlugin.loader, // Extract css to separate file
-          'css-loader', // translates CSS into CommonJS
-          'postcss-loader', // parse CSS and add vendor prefixes to CSS rules
-          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
         ]
+      },
+
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
 
       // Подключаем шрифты из css
@@ -46,7 +74,7 @@ module.exports = {
         test: /\.(eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader?name=./fonts/[name].[ext]'
+            loader: 'file-loader?name=./fonts/[name].[ext]',
           }
         ]
       },
@@ -56,7 +84,18 @@ module.exports = {
         test: /\.(svg|png|jpg|jpeg|webp)$/,
         use: [
           {
-            loader: 'file-loader?name=./static/[name].[ext]'
+            loader: 'file-loader?name=./static/[name].[ext]',
+            options: {
+              name: '[path][name].[ext]',
+              context: path.resolve(__dirname, 'src/'),
+              outputPath: 'dist/',
+              publicPath: '../',
+              useRelativePaths: true
+            }
+            // options: {
+            //   import: true,
+            //   url: true
+            // }
           }
         ]
       }
@@ -80,13 +119,13 @@ module.exports = {
     }),
 
     // Копируем картинки
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve('./src/img'),
-          to: path.resolve('img')
-        }
-      ]
-    })
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, './src/img'),
+    //       to: path.resolve(__dirname, './dist/images')
+    //     }
+    //   ]
+    // })
   ]
 }
