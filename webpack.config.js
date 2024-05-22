@@ -35,32 +35,11 @@ module.exports = {
       // Компилируем SCSS в CSS
       {
         test: /\.scss$/,
-        // use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-        // use: [
-        //   'style-loader',
-        //   MiniCssExtractPlugin.loader,
-        //   {
-        //     loader: 'css-loader',
-        //     options: { sourceMap: true }
-        //   },
-        //   {
-        //     loader: 'postcss-loader',
-        //     options: {
-        //       postcssOptions: {
-        //         plugins: [['postcss-preset-env']]
-        //       }
-        //     }
-        //   },
-        //   {
-        //     loader: 'sass-loader',
-        //     options: { sourceMap: true }
-        //   }
-        // ]
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          'sass-loader'
         ]
       },
 
@@ -74,7 +53,7 @@ module.exports = {
         test: /\.(eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader?name=./fonts/[name].[ext]',
+            loader: 'file-loader?name=./fonts/[name].[ext]'
           }
         ]
       },
@@ -85,17 +64,6 @@ module.exports = {
         use: [
           {
             loader: 'file-loader?name=./static/[name].[ext]',
-            options: {
-              name: '[path][name].[ext]',
-              context: path.resolve(__dirname, 'src/'),
-              outputPath: 'dist/',
-              publicPath: '../',
-              useRelativePaths: true
-            }
-            // options: {
-            //   import: true,
-            //   url: true
-            // }
           }
         ]
       }
@@ -119,13 +87,13 @@ module.exports = {
     }),
 
     // Копируем картинки
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, './src/img'),
-    //       to: path.resolve(__dirname, './dist/images')
-    //     }
-    //   ]
-    // })
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, './src/img'),
+          to: path.resolve(__dirname, './images')
+        }
+      ]
+    })
   ]
 }
